@@ -18,4 +18,5 @@ Configuration Prometheus Node Exporter
 ```
 cd /etc/systemd/system
 wget https://raw.githubusercontent.com/NonneTrapuE/brief_supervision/main/node_exporter.service
-mkdir /etc/
+mkdir /etc/node_exporter
+touch /etc/node_exporter
