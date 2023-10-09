@@ -16,5 +16,6 @@ chmod -R 700 /opt/Prometheus
 Configuration Prometheus Node Exporter
 
 ```
-
-
+cd /etc/systemd/system
+wget https://raw.githubusercontent.com/NonneTrapuE/brief_supervision/main/node_exporter.service
+mkdir /etc/
