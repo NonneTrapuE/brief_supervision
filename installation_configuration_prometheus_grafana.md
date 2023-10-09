@@ -60,6 +60,7 @@ mv -R prometheus-2.47.1.linux-amd64/ /opt/prometheus/
 
 ```
 mkdir /etc/prometheus
-
+cd /etc/prometheus
+wget 
 chmod -R 700 /etc/prometheus
 
