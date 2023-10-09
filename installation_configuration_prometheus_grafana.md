@@ -22,7 +22,8 @@ mkdir /etc/node_exporter
 touch /etc/node_exporter/configuration.yml
 chmod -R 700 /etc/node_exporter
 chown -R node_exporter: /etc/node_exporter
-systemctl start node_exporter
+systemctl daemon-reload
+systemctl enable --now node_exporter
 ```
 
 On peut vérifier que le node exporter soit actif :
@@ -61,6 +62,14 @@ mv -R prometheus-2.47.1.linux-amd64/ /opt/prometheus/
 ```
 mkdir /etc/prometheus
 cd /etc/prometheus
-wget 
+wget https://raw.githubusercontent.com/NonneTrapuE/brief_supervision/main/configuration.yml
 chmod -R 700 /etc/prometheus
+```
 
+Fichier configuration.yml à modifier pour insérer les informations voulues
+
+```
+cd /etc/systemd/system
+wget 
+systemctl daemon-reload
+systemctl enable --now prometheus
