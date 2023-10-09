@@ -1,19 +1,19 @@
-# Installation Prometheus
+# Installation de Node Exporter
 
-Installation Prometheus Node Exporter version 1.6.1
+## Installation Prometheus Node Exporter version 1.6.1
 
 ```
 useradd -rs /bin/false node_exporter
 cd /tmp
 wget https://github.com/prometheus/node_exporter/releases/download/v1.6.1/node_exporter-1.6.1.darwin-amd64.tar.gz
-tar -xavf node_exporter-1.6.1.linux-amd64.tar.gz
+tar xavf node_exporter-1.6.1.linux-amd64.tar.gz
 mkdir /opt/Prometheus
 mv node_exporter-1.6.1.linux-amd64/node_exporter /opt/Prometheus/node_exporter
 chown -R /opt/Prometheus
 chmod -R 700 /opt/Prometheus
 ```
 
-Configuration Prometheus Node Exporter
+## Configuration Prometheus Node Exporter
 
 ```
 cd /etc/systemd/system
@@ -39,4 +39,15 @@ password=`openssl rand -base64 32`
 passwordHashed=`echo ${password} | htpasswd -inBC 10 "" | tr -d ':\n'`
 echo -e "basic_auth_users:\n\tprometheus: ${passwordHashed}" >> /etc/node_exporter/configuration.yml
 systemctl restart node_exporter
+```
+
+⚠️ N'oubliez pas de récupérer le résultat de la variable **password** qui est le mot de passe en clair ⚠️
+
+
+# Installation de Prometheus
+
+```
+cd /tmp
+wget https://github.com/prometheus/prometheus/releases/download/v2.47.1/prometheus-2.47.1.linux-amd64.tar.gz
+tar xavf prometheus-2.47.1.linux-amd64.tar.gz
 ```
