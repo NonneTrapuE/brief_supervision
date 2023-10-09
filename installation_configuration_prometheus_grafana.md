@@ -55,6 +55,7 @@ cd /tmp
 wget https://github.com/prometheus/prometheus/releases/download/v2.47.1/prometheus-2.47.1.linux-amd64.tar.gz
 tar xavf prometheus-2.47.1.linux-amd64.tar.gz
 mv -R prometheus-2.47.1.linux-amd64/ /opt/prometheus/
+chmod -R 700 /opt/prometheus
 ```
 
 ## Configuration 
@@ -70,6 +71,7 @@ Fichier configuration.yml à modifier pour insérer les informations voulues
 
 ```
 cd /etc/systemd/system
-wget 
+wget https://raw.githubusercontent.com/NonneTrapuE/brief_supervision/main/prometheus.service
 systemctl daemon-reload
 systemctl enable --now prometheus
+```
