@@ -1,0 +1,12 @@
+[Unit]
+Description=Node Exporter
+After=network.target
+
+[Service]
+User=node_exporter
+Group=node_exporter
+Type=simple
+ExecStart=/opt/Prometheus/node_exporter --web.config.file=/etc/prometheus_node_exporter/configuration.yml
+
+[Install]
+WantedBy=multi-user.target
