@@ -1,4 +1,4 @@
-# Installation de Node Exporter
+# Node Exporter
 
 ## Installation Prometheus Node Exporter version 1.6.1
 
@@ -44,10 +44,22 @@ systemctl restart node_exporter
 ⚠️ N'oubliez pas de récupérer le résultat de la variable **password** qui est le mot de passe en clair ⚠️
 
 
-# Installation de Prometheus
+# Prometheus
+
+## Installation de Prometheus
 
 ```
+useradd -rs /bin/false prometheus
 cd /tmp
 wget https://github.com/prometheus/prometheus/releases/download/v2.47.1/prometheus-2.47.1.linux-amd64.tar.gz
 tar xavf prometheus-2.47.1.linux-amd64.tar.gz
+mv -R prometheus-2.47.1.linux-amd64/ /opt/prometheus/
 ```
+
+## Configuration 
+
+```
+mkdir /etc/prometheus
+
+chmod -R 700 /etc/prometheus
+
