@@ -6,7 +6,7 @@ After=network.target
 User=node_exporter
 Group=node_exporter
 Type=simple
-ExecStart=/opt/Prometheus/node_exporter --web.config.file=/etc/prometheus_node_exporter/configuration.yml
+ExecStart=/opt/Prometheus/node_exporter --web.config.file=/etc/node_exporter/configuration.yml
 
 [Install]
 WantedBy=multi-user.target
