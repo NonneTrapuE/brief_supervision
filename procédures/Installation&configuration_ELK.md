@@ -22,7 +22,7 @@ Puis, on va configurer notre service pour systemd :
 
 ```
 cd /etc/systemd/system
-wget
+wget https://raw.githubusercontent.com/NonneTrapuE/brief_supervision/main/files/ELK/elastic.service
 systemctl daemon-restart
 systemctl enable --now elastic.service
 ```
