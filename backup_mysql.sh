@@ -63,7 +63,7 @@ if [ ! -f $DATE_DUMP_SQL.sql ]; then
 
 		if [ $? == "0" ]; then
 			echo "====================" >> $LOGS_PATH
-			echo "Dump de la BDD : OK" | tee $LOGSPATH
+			echo "Dump de la BDD : OK" | tee $LOGS_PATH
 			echo "====================" >> $LOGS_PATH
 		
 			# Création du checksum du fichier
