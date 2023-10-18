@@ -76,7 +76,8 @@ if [ ! -f $BACKUP_SERVER_PATH/$DATE_DUMP_SQL.sql ]; then
 			else 
 
 				#Fin du programme : Création du fichier de signature impossible
-				exit 3
+				echo "Impossible de créer le fichier signature" >> $LOGS_PATH
+    				exit 3
 		else 
 			echo "Dump de la BDD : NOK" >> $LOGS_PATHS
 			exit 2
