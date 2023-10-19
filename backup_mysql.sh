@@ -24,10 +24,10 @@
 	#############
 
 #Utilisateur de la base de données
-DATABASE_USER=
+#DATABASE_USER=
 
 #Mot de passe de l'utilisateur de la base de données
-DATABASE_USER_PASSWORD=
+#DATABASE_USER_PASSWORD=
 
 #Formatage de la date du jour sous la forme année_mois_jour_heure
 DATE_DUMP_SQL=$(date +"%y_%m_%d_%H")
@@ -36,7 +36,7 @@ DATE_DUMP_SQL=$(date +"%y_%m_%d_%H")
 LOGS_PATH=
 
 #IP distante
-IP_BACKUP_SERVER=
+IP_BACKUP_SERVER=$1
 
 #Utilisateur du serveur de backup
 BACKUP_SERVER_USER=
@@ -58,7 +58,7 @@ BACKUP_SERVER_PATH=
 if [ ! -f $BACKUP_SERVER_PATH/$DATE_DUMP_SQL.sql ]; then 
 
 	#Dump de la base de données à distance
-	ssh $BACKUP_SERVER_USER@$IP_BACKUP_SERVER mysqldump --all-databases -u $DATABASE_USER --password=$DATABASE_USER_PASSWORD > $BACKUP_SERVER_PATH/$DATE_DUMP_SQL.sql 
+	ssh -t $BACKUP_SERVER_USER@$IP_BACKUP_SERVER sudo mysqldump --all-databases > $BACKUP_SERVER_PATH/$DATE_DUMP_SQL.sql 
 
 		if [ $? == "0" ]; then
 
