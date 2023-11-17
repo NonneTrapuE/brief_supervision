@@ -27,14 +27,15 @@ fi
 
 echo "deb [signed-by=/etc/apt/keyrings/grafana.gpg] https://apt.grafana.com stable main" | sudo tee -a /etc/apt/sources.list.d/grafana.list
 
-if [[ $0 != "0" ]]; then
+if [[ $? != "0" ]]; then
         echo "Impossible d'ajouter la signature de la clé GPG. Le programme va quitter."
         exit 4
 fi
 
+apt update
 apt install -y grafana
 
-if [[ $0 != "0" ]]; then
+if [[ $? != "0" ]]; then
         echo "Impossible d'installer le package grafana. Le programme va quitter."
         exit 5
 fi
@@ -45,15 +46,16 @@ echo "http_port = 3000" > /etc/grafana/grafana.ini
 systemctl daemon-reload
 systemctl enable --now grafana-server
 
-if [[ $0 != "0" ]]; then
+if [[ $? != "0" ]]; then
         echo "Impossible de lancer le service grafana-server. Le programme va quitter."
         exit 6
 fi
+
+clear
 
 echo "#######################################"
 echo "Installation de grafana-server terminée"
 echo -e "\n\t * Identifiant: admin\n\t * Mot de passe: admin"
 echo "#######################################"
-
 
 
