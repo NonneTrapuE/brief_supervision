@@ -84,10 +84,10 @@ if [ ! -f $BACKUP_SERVER_PATH/$DATE_DUMP_SQL.sql ]; then
 				echo "Création du fichier de signature impossible"
 				exit 3
 		else 
-			echo "Dump de la BDD : NOK" >> $LOGS_PATHS
+			echo "Dump de la BDD : NOK" >> $LOGS_PATH
 			exit 2
 	 	fi
 else
-	echo "Fichier SQL déjà présent dans le répertoire" >> $LOGS_PATHS
+	echo "Fichier SQL déjà présent dans le répertoire" >> $LOGS_PATH
 		exit 1
 fi
