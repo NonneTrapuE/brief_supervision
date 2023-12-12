@@ -68,7 +68,7 @@ if [ ! -f $BACKUP_SERVER_PATH/$DATE_DUMP_SQL.sql ]; then
 			sha512sum $DATE_DUMP_SQL.sql > $DATE_DUMP_SQL.sha
 
 			# Test du fichier checksum
-			if [$? == "0"]; then
+			if [ $? == "0" ]; then
 
 				#Création du dump chiffré des bases SQL
 				openssl enc -e -aes-256-cbc -in $BACKUP_SERVER_PATH/$DATE_DUMP_SQL.sql -out $BACKUP_SERVER_PATH/$DATE_DUMP_SQL.chi -pass pass:motdepasse
